@@ -161,28 +161,108 @@ def levenshtein_distance(a: str, b: str) -> int:
     return prev[-1]
 
 
-# レア音素の「潰し」パターン（vvproj が ROHAN の正しい読みを崩している）
+# レア音素の「潰し」パターン（VOICEVOX pyopenjtalk 非対応のレア音素）
+# ROHAN なしの場合に pyopenjtalk 出力との比較で使用
 _RARE_COLLAPSE_PAIRS = (
     ("クァ", "クア"), ("クィ", "クイ"), ("クゥ", "クウ"), ("クェ", "クエ"), ("クォ", "クオ"),
     ("グァ", "グア"), ("グィ", "グイ"), ("グゥ", "グウ"), ("グェ", "グエ"), ("グォ", "グオ"),
     ("シィ", "シイ"), ("デェ", "デエ"), ("フュ", "フユ"),
-    ("グェ", "グエ"), ("クゥ", "クウ"), ("イェ", "イエ"), ("キェ", "キエ"), ("ギェ", "ギエ"),
+    ("イェ", "イエ"), ("キェ", "キエ"), ("ギェ", "ギエ"),
 )
+
+# 拗音・外来語音を含む全ての「潰し」パターン
+# ROHAN がある場合の vvproj vs ROHAN 比較で使用
+# レア音素に加え、VOICEVOX 対応の拗音・外来語音も含む
+_ALL_COLLAPSE_PAIRS = _RARE_COLLAPSE_PAIRS + (
+    # 拗音（ャ/ュ/ョ 系）
+    ("キャ", "キヤ"), ("キュ", "キユ"), ("キョ", "キヨ"),
+    ("ギャ", "ギヤ"), ("ギュ", "ギユ"), ("ギョ", "ギヨ"),
+    ("シャ", "シヤ"), ("シュ", "シユ"), ("ショ", "シヨ"),
+    ("ジャ", "ジヤ"), ("ジュ", "ジユ"), ("ジョ", "ジヨ"),
+    ("チャ", "チヤ"), ("チュ", "チユ"), ("チョ", "チヨ"),
+    ("ニャ", "ニヤ"), ("ニュ", "ニユ"), ("ニョ", "ニヨ"),
+    ("ヒャ", "ヒヤ"), ("ヒュ", "ヒユ"), ("ヒョ", "ヒヨ"),
+    ("ビャ", "ビヤ"), ("ビュ", "ビユ"), ("ビョ", "ビヨ"),
+    ("ピャ", "ピヤ"), ("ピュ", "ピユ"), ("ピョ", "ピヨ"),
+    ("ミャ", "ミヤ"), ("ミュ", "ミユ"), ("ミョ", "ミヨ"),
+    ("リャ", "リヤ"), ("リュ", "リユ"), ("リョ", "リヨ"),
+    ("テャ", "テヤ"), ("テュ", "テユ"), ("テョ", "テヨ"),
+    ("デャ", "デヤ"), ("デュ", "デユ"), ("デョ", "デヨ"),
+    # 外来語音（ェ 系）
+    ("シェ", "シエ"), ("ジェ", "ジエ"), ("チェ", "チエ"),
+    ("ニェ", "ニエ"), ("ヒェ", "ヒエ"), ("ビェ", "ビエ"), ("ピェ", "ピエ"),
+    ("ミェ", "ミエ"), ("リェ", "リエ"),
+    # 外来語音（ァ/ィ/ゥ/ォ 系）
+    ("ファ", "フア"), ("フィ", "フイ"), ("フェ", "フエ"), ("フォ", "フオ"),
+    ("ティ", "テイ"), ("ディ", "デイ"),
+    ("トゥ", "トウ"), ("ドゥ", "ドウ"),
+    ("ウィ", "ウイ"), ("ウェ", "ウエ"), ("ウォ", "ウオ"),
+    ("ツァ", "ツア"), ("ツィ", "ツイ"), ("ツェ", "ツエ"), ("ツォ", "ツオ"),
+    ("スィ", "スイ"), ("ズィ", "ズイ"),
+)
+
+
+def _normalize_voicing(kana: str) -> str:
+    """
+    ヅ→ズ、ヂ→ジ の正規化を行う。
+    日本語音素としてヅ/ズ、ヂ/ジ は完全に同一音素であるため、
+    比較時にこれらの表記ゆれを無視するために使用する。
+    """
+
+    return kana.replace("ヅ", "ズ").replace("ヂ", "ジ")
 
 
 def _has_rare_collapse_vs_rohan(actual: str, rohan: str) -> bool:
     """ROHAN がレア音素を使い、vvproj がそれを潰しているか。"""
+
     for rare, collapsed in _RARE_COLLAPSE_PAIRS:
         if rare in rohan and rare not in actual and collapsed in actual:
             return True
     return False
 
 
+def _has_phoneme_collapse_vs_rohan(actual: str, rohan: str) -> bool:
+    """
+    ROHAN が拗音・外来語音を使い、vvproj がそれを潰しているか。
+    レア音素に加え、VOICEVOX 対応の拗音・外来語音（ツァ, ティ, フォ, ミャ, シェ 等）も検出する。
+    同じ音素が複数回出現し一部だけが潰されているケースも検出するため、出現回数を比較する。
+    """
+
+    for correct, collapsed in _ALL_COLLAPSE_PAIRS:
+        rohan_count = rohan.count(correct)
+        actual_count = actual.count(correct)
+        # ROHAN より vvproj の出現回数が少なく、潰された形が vvproj に含まれている
+        if rohan_count > actual_count and collapsed in actual:
+            return True
+    return False
+
+
+def _find_collapsed_phonemes(actual: str, rohan: str) -> list[str]:
+    """
+    vvproj が ROHAN の拗音・外来語音を潰している箇所を全て列挙する。
+    理由メッセージの生成用。
+    """
+
+    found: list[str] = []
+    for correct, collapsed in _ALL_COLLAPSE_PAIRS:
+        rohan_count = rohan.count(correct)
+        actual_count = actual.count(correct)
+        if rohan_count > actual_count and collapsed in actual:
+            found.append(f"{correct}→{collapsed}")
+    return found
+
+
 def judge_mismatch(m: dict) -> tuple[str, str]:
     """
     各件を読み、ROHAN を正解としてジャッジする。
-    判断基準は LLM による個別検討に基づく。
+
+    判断基準:
+    - ROHAN transcript の読みを正解とする
+    - ヅ/ズ、ヂ/ジ は同一音素として扱い、表記ゆれは許容する
+    - 拗音・外来語音の潰し（ツァ→ツア、ミャ→ミヤ 等）は問題あり
+    - レーベンシュタイン距離で ROHAN に近い方を採用（但し拗音潰しは距離に関わらず問題あり）
     """
+
     rohan_norm = m.get("rohan_norm", "")
     actual_norm = m["actual_norm"]
     expected_norm = m["expected_norm"]
@@ -206,16 +286,30 @@ def judge_mismatch(m: dict) -> tuple[str, str]:
             return ("問題あり", "ROHAN 該当なし。五如来幡は ゴニョライバタ が正しい。vvproj が ニョ を ニヨ に潰している。")
         return ("要検討", "ROHAN transcript に該当なし。判断不能。")
 
-    if actual_norm == rohan_norm:
-        return ("問題なし", "vvproj は ROHAN（正解）と一致。pyopenjtalk の誤りを正しく補正済み。")
+    # ヅ/ズ、ヂ/ジ は同一音素のため正規化して比較
+    actual_v = _normalize_voicing(actual_norm)
+    rohan_v = _normalize_voicing(rohan_norm)
+    expected_v = _normalize_voicing(expected_norm)
 
-    if expected_norm == rohan_norm:
+    # vvproj が ROHAN と一致（ヅ/ズ、ヂ/ジ の表記ゆれは許容）
+    if actual_v == rohan_v:
+        if actual_norm == rohan_norm:
+            return ("問題なし", "vvproj は ROHAN（正解）と一致。pyopenjtalk の誤りを正しく補正済み。")
+        return ("問題なし", "vvproj は ROHAN（正解）と一致（ヅ/ズ・ヂ/ジ の表記ゆれのみ）。")
+
+    # pyopenjtalk が ROHAN と一致（ヅ/ズ、ヂ/ジ の表記ゆれは許容）
+    if expected_v == rohan_v:
         return ("問題あり", "vvproj が ROHAN と乖離。pyopenjtalk の方が正しい。vvproj の誤り。")
 
     # 両方 ROHAN と異なる場合：内容を読んで判断
-    # 1. レア音素の潰し：ROHAN がクァ/グァ等を使い vvproj がクア/グアにしている → 問題あり
-    if _has_rare_collapse_vs_rohan(actual_norm, rohan_norm):
-        return ("問題あり", "vvproj が ROHAN のレア音素（クァ/グァ等）を潰している。ROHAN が正。")
+    # 1. 拗音・外来語音の潰し：ROHAN の拗音・外来語音を vvproj が潰している → 問題あり
+    ## レア音素（クァ/グァ等）だけでなく、標準拗音（ツァ, ティ, フォ, ミャ, シェ 等）も検出する
+    ## 距離ベースの判定では vvproj が他の読み誤りを正しく補正している場合に
+    ## 拗音潰しが距離差に埋もれて見逃されるため、距離比較の前にこのチェックを行う
+    if _has_phoneme_collapse_vs_rohan(actual_norm, rohan_norm):
+        collapsed_list = _find_collapsed_phonemes(actual_norm, rohan_norm)
+        collapsed_str = ", ".join(collapsed_list)
+        return ("問題あり", f"vvproj が ROHAN の拗音・外来語音を潰している（{collapsed_str}）。ROHAN が正。")
 
     # 2. pyopenjtalk の辞書誤りで vvproj が正しい例
     # 基肥→キヒ（正:モトゴエ）、社→シャ（正:ヤシロ）、日が→ビガ（正:ヒガ）
@@ -234,55 +328,27 @@ def judge_mismatch(m: dict) -> tuple[str, str]:
     if "ニホン" in expected_norm and "ニッポン" in actual_norm and ("ニホン" in rohan_norm or "ニッポン" in rohan_norm):
         return ("問題なし", "日本の読みの揺れ（ニホン/ニッポン）。どちらも許容。")
 
-    # 4. レーベンシュタイン距離で ROHAN に近い方を採用
-    dist_actual = levenshtein_distance(actual_norm, rohan_norm)
-    dist_expected = levenshtein_distance(expected_norm, rohan_norm)
+    # 4. レーベンシュタイン距離で ROHAN に近い方を採用（ヅ/ズ、ヂ/ジ は正規化後比較）
+    dist_actual = levenshtein_distance(actual_v, rohan_v)
+    dist_expected = levenshtein_distance(expected_v, rohan_v)
 
     if dist_actual < dist_expected:
         return ("問題なし", f"vvproj の方が ROHAN に近い（距離: vvproj={dist_actual}, pyojt={dist_expected}）。補正方向は妥当。")
     if dist_expected < dist_actual:
         return ("問題あり", f"pyopenjtalk の方が ROHAN に近い（距離: vvproj={dist_actual}, pyojt={dist_expected}）。vvproj の誤り。")
 
-    # 5. 同距離の場合：文脈的に判断。vvproj がレア音素・拗音を潰している → 問題あり。
-    #    ヅ/ズ の表記ゆれ（根付く、結論付ける）は vvproj の ズ が許容 → 問題なし。
-    if dist_actual == dist_expected:
-        # グゥグゥ寝てる: vvproj が グゥ を グ に潰して ググネテル になっている
-        if "グゥグゥネテル" in rohan_norm and "ググネテル" in actual_norm and "グウグウネテル" in expected_norm:
-            return ("問題あり", "vvproj が ROHAN の グゥ を グ に潰している。pyopenjtalk の グウ の方が正しい。")
-        # シプリェン: vvproj が ェ を エ に潰している
-        if "シプリェン" in rohan_norm and "シプリエン" in actual_norm:
-            return ("問題あり", "vvproj が ROHAN の シプリェン の ェ を潰している。pyopenjtalk の方が正しい。")
-        # ウォウウォウイェイイェイ: vvproj が イェ を イエ に潰している
-        if "イェイイェイ" in rohan_norm and "イエイイェイ" in actual_norm:
-            return ("問題あり", "vvproj が ROHAN の イェ を イエ に潰している。pyopenjtalk の方が正しい。")
-        # ツァウニャ: vvproj が ニャ を ニヤ に潰している
-        if "ツァウニャ" in rohan_norm and "ツァウニヤ" in actual_norm:
-            return ("問題あり", "vvproj が ROHAN の ツァウニャ の ニャ を ニヤ に潰している。pyopenjtalk の方が正しい。")
-        # 脈々と根付いて / 根付いた: ヅ と ズ は表記ゆれで同音。vvproj の ズ は許容。
-        if "ネヅイテ" in rohan_norm and "ネズイテ" in actual_norm and "ネツイテ" in expected_norm:
-            return ("問題なし", "根付いて の ヅ/ズ は表記ゆれで同音。vvproj の ズ は許容。pyopenjtalk の ツ は誤り。")
-        if "ネヅイタ" in rohan_norm and "ネズイタ" in actual_norm and "ネツイタ" in expected_norm:
-            return ("問題なし", "根付いた の ヅ/ズ は表記ゆれで同音。vvproj の ズ は許容。pyopenjtalk の ツ は誤り。")
-        # 結論付けた: ヅ と ズ は表記ゆれ
-        if "ケツロンヅケタ" in rohan_norm and "ケツロンズケタ" in actual_norm and "ケツロンツケタ" in expected_norm:
-            return ("問題なし", "結論付けた の ヅ/ズ は表記ゆれで同音。vvproj の ズ は許容。pyopenjtalk の ツ は誤り。")
-        # フィッツェ、ドゥンボヴィツァ: vvproj が ェ を エ に潰している
-        if "フィッツェ" in rohan_norm and "フィッツエ" in actual_norm:
-            return ("問題あり", "vvproj が ROHAN の フィッツェ の ェ を潰している。pyopenjtalk の方が正しい。")
-        # シャリャーピンが田畑を: vvproj が リャ を リヤ に潰している
-        if "シャリャ" in rohan_norm and "シャリヤ" in actual_norm and "タバタ" in rohan_norm and "タハタ" in expected_norm:
-            return ("問題あり", "vvproj が ROHAN の シャリャ を シャリヤ に潰している。pyopenjtalk の リャ は正しい。")
-        # サムスィントゥ: vvproj が スィ を スイ に潰している
-        if "サムスィントゥ" in rohan_norm and "サムスイントゥ" in actual_norm:
-            return ("問題あり", "vvproj が ROHAN の サムスィントゥ の スィ を潰している。pyopenjtalk の方が正しい。")
-        # リュブリャニーツァ: vvproj が リャ を リヤ に潰している
-        if "リュブリャニ" in rohan_norm and "リュブリヤニ" in actual_norm and "ガワ" in rohan_norm and "カワ" in expected_norm:
-            return ("問題あり", "vvproj が ROHAN の リュブリャ を リュブリヤ に潰している。pyopenjtalk の リャ は正しい。")
-        # ジョゼッフォとリウィウス: vvproj が リウィ を リウイ に潰している（止める は vvproj の ヤメ が正）
-        if "リウィウス" in rohan_norm and "リウイウス" in actual_norm and "ヤメ" in rohan_norm and "トメ" in expected_norm:
-            return ("問題あり", "vvproj が ROHAN の リウィウス の ィ を潰している。pyopenjtalk の リウィ は正しい。")
+    # 5. 同距離の場合：vvproj が拗音・外来語音を潰している → 問題あり（上のチェックで検出済み）
+    ## ここに到達するのは拗音潰しがなく、かつ距離が同じケース
+    ## グゥグゥ寝てる: vvproj が グゥ を グ に潰して ググネテル になっているケースなど
+    if "グゥグゥネテル" in rohan_norm and "ググネテル" in actual_norm and "グウグウネテル" in expected_norm:
+        return ("問題あり", "vvproj が ROHAN の グゥ を グ に潰している。pyopenjtalk の グウ の方が正しい。")
 
-    return ("要検討", f"vvproj と pyopenjtalk が ROHAN から同距離。要確認。")
+    # 同距離で vvproj が pyopenjtalk と同等（ヅ/ズ・ヂ/ジ 正規化後）
+    # vvproj は pyopenjtalk より悪くないため、問題なしと判定
+    if _normalize_voicing(actual_norm) == _normalize_voicing(expected_norm):
+        return ("問題なし", f"vvproj と pyopenjtalk が同等（ヅ/ズ 正規化後一致、ROHAN からの距離: {dist_actual}）。")
+
+    return ("要検討", f"vvproj と pyopenjtalk が ROHAN から同距離（距離: {dist_actual}）。要確認。")
 
 
 def format_diff_summary(a: str, b: str, max_diffs: int = 15) -> str:
