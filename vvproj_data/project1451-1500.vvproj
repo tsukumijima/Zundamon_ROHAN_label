@@ -3916,11 +3916,11 @@
           {
             "moras": [
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -4091,16 +4091,12 @@
                 "pitch": 0
               },
               {
-                "vowel": "i",
-                "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
-              },
-              {
+                "text": "イェ",
                 "vowel": "e",
                 "vowelLength": 0,
-                "text": "エ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.05
               },
               {
                 "consonant": "f",
@@ -4141,7 +4137,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "isInterrogative": false
           },
           {
@@ -4348,11 +4344,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -4880,11 +4876,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "バ",
+                "text": "ヴァ",
                 "pitch": 0
               },
               {
@@ -5035,18 +5031,12 @@
           {
             "moras": [
               {
-                "consonant": "g",
-                "consonantLength": 0,
-                "vowel": "u",
-                "vowelLength": 0,
-                "text": "グ",
-                "pitch": 0
-              },
-              {
+                "text": "グァ",
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "ア",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "gw",
+                "consonantLength": 0
               },
               {
                 "consonant": "b",
@@ -5087,7 +5077,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 4,
+            "accent": 3,
             "isInterrogative": false
           },
           {
@@ -9177,6 +9167,12 @@
           {
             "moras": [
               {
+                "text": "イ",
+                "vowel": "i",
+                "vowelLength": 0.0803841333836317,
+                "pitch": 5.791056394577026
+              },
+              {
                 "text": "オ",
                 "vowel": "o",
                 "vowelLength": 0.11176124960184097,
@@ -9207,7 +9203,7 @@
                 "pitch": 5.818672180175781
               }
             ],
-            "accent": 4,
+            "accent": 5,
             "isInterrogative": false
           },
           {
@@ -9573,18 +9569,12 @@
           {
             "moras": [
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.09680012613534927,
-                "vowel": "u",
-                "vowelLength": 0.06584625691175461,
-                "pitch": 5.8068695068359375
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.10458611696958542,
-                "pitch": 5.908687114715576
+                "pitch": 5.8068695068359375,
+                "consonant": "ts",
+                "consonantLength": 0.09680012613534927
               },
               {
                 "text": "ヘ",

@@ -1841,8 +1841,8 @@
                 "pitch": 5.855404853820801
               },
               {
-                "text": "ビ",
-                "consonant": "b",
+                "text": "ヴィ",
+                "consonant": "v",
                 "consonantLength": 0.06585574150085449,
                 "vowel": "i",
                 "vowelLength": 0.07289262861013412,
@@ -6684,11 +6684,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "ブ",
+                "text": "ヴ",
                 "pitch": 0
               },
               {

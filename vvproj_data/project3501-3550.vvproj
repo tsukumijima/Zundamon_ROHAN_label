@@ -4451,11 +4451,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "e",
                 "vowelLength": 0,
-                "text": "ベ",
+                "text": "ヴェ",
                 "pitch": 0
               },
               {
@@ -4664,11 +4664,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -6521,8 +6521,8 @@
                 "pitch": 5.4849958419799805
               },
               {
-                "text": "ボ",
-                "consonant": "b",
+                "text": "ヴォ",
+                "consonant": "v",
                 "consonantLength": 0.06143919378519058,
                 "vowel": "o",
                 "vowelLength": 0.10246290266513824,
@@ -8685,8 +8685,8 @@
           {
             "moras": [
               {
-                "text": "ビ",
-                "consonant": "b",
+                "text": "ヴィ",
+                "consonant": "v",
                 "consonantLength": 0.06223412603139877,
                 "vowel": "i",
                 "vowelLength": 0.07718489319086075,
@@ -13948,18 +13948,12 @@
                 "pitch": 0
               },
               {
-                "text": "フ",
-                "consonant": "f",
-                "consonantLength": 0.09485054761171341,
-                "vowel": "u",
-                "vowelLength": 0.07480309158563614,
-                "pitch": 5.937753200531006
-              },
-              {
-                "text": "ア",
+                "text": "ファ",
                 "vowel": "a",
                 "vowelLength": 0.12273047119379044,
-                "pitch": 5.947535991668701
+                "pitch": 5.937753200531006,
+                "consonant": "f",
+                "consonantLength": 0.09485054761171341
               },
               {
                 "text": "イ",
@@ -13988,7 +13982,7 @@
                 "pitch": 5.660266876220703
               }
             ],
-            "accent": 6,
+            "accent": 5,
             "isInterrogative": false
           },
           {

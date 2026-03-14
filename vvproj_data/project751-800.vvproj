@@ -1183,11 +1183,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "o",
                 "vowelLength": 0,
-                "text": "ボ",
+                "text": "ヴォ",
                 "pitch": 0
               },
               {
@@ -1982,11 +1982,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "by",
+                "consonant": "py",
                 "consonantLength": 0,
                 "vowel": "o",
                 "vowelLength": 0,
-                "text": "ビョ",
+                "text": "ピョ",
                 "pitch": 0
               },
               {
@@ -2038,9 +2038,9 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "e",
                 "vowelLength": 0,
-                "text": "イ",
+                "text": "エ",
                 "pitch": 0
               },
               {
@@ -2209,11 +2209,11 @@
           {
             "moras": [
               {
-                "consonant": "ch",
+                "consonant": "ty",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "チュ",
+                "text": "テュ",
                 "pitch": 0
               },
               {
@@ -2998,11 +2998,11 @@
           {
             "moras": [
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -3624,8 +3624,8 @@
                 "pitch": 5.536836624145508
               },
               {
-                "text": "ブ",
-                "consonant": "b",
+                "text": "ヴ",
+                "consonant": "v",
                 "consonantLength": 0.05485181510448456,
                 "vowel": "u",
                 "vowelLength": 0.06461755186319351,
@@ -3654,18 +3654,12 @@
                 "pitch": 0
               },
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.08498887717723846,
-                "vowel": "u",
-                "vowelLength": 0.06329187750816345,
-                "pitch": 5.944234848022461
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.08695115894079208,
-                "pitch": 5.908520221710205
+                "pitch": 5.944234848022461,
+                "consonant": "ts",
+                "consonantLength": 0.08498887717723846
               },
               {
                 "text": "ニ",
@@ -7187,11 +7181,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -9285,18 +9279,12 @@
           {
             "moras": [
               {
-                "consonant": "g",
-                "consonantLength": 0,
-                "vowel": "u",
-                "vowelLength": 0,
-                "text": "グ",
-                "pitch": 0
-              },
-              {
+                "text": "グァ",
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "ア",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "gw",
+                "consonantLength": 0
               },
               {
                 "consonant": "b",
@@ -9321,7 +9309,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 3,
+            "accent": 2,
             "isInterrogative": false
           },
           {
@@ -9819,8 +9807,8 @@
                 "pitch": 5.670457363128662
               },
               {
-                "text": "ビ",
-                "consonant": "b",
+                "text": "ヴィ",
+                "consonant": "v",
                 "consonantLength": 0.05686791241168976,
                 "vowel": "i",
                 "vowelLength": 0.06483100354671478,
@@ -12848,11 +12836,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {

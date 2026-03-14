@@ -56,7 +56,7 @@ SMALL_KANA_MAP: dict[str, str] = {
 
 # 小書きカナの集合（モーラパーサーで使用）
 SMALL_KANA_SET: frozenset[str] = frozenset(
-    {'ァ', 'ィ', 'ゥ', 'ェ', 'ォ', 'ャ', 'ュ', 'ョ'}
+    {'ァ', 'ィ', 'ゥ', 'ェ', 'ォ', 'ャ', 'ュ', 'ョ', 'ヮ'}
 )
 
 
@@ -436,6 +436,41 @@ def parse_kana_to_moras(kana_string: str) -> list[str]:
     return moras
 
 
+def convert_moras_yomi_to_pron(moras: list[str]) -> list[str]:
+    """
+    モーラリストを読み形から発音形に変換する。
+
+    ROHAN transcript は「読み」（コウカ, ジンセイ）形式で記述されるが、
+    vvproj の accentPhrase は「発音」（コオカ, ジンセエ）形式であるべき。
+    - エ段モーラの直後の「イ」→「エ」に変換（長音として同一）
+    - オ段モーラの直後の「ウ」→「オ」に変換（長音として同一）
+
+    Args:
+        moras (list[str]): モーラリスト（読み形）
+
+    Returns:
+        list[str]: モーラリスト（発音形に変換済み）
+    """
+
+    if len(moras) == 0:
+        return moras
+
+    result = list(moras)
+    for index in range(1, len(result)):
+        prev_mora = result[index - 1]
+        current_mora = result[index]
+        # 直前のモーラの最後の文字から母音段を判定
+        last_char_of_prev = prev_mora[-1]
+        prev_vowel = CHOONPU_VOWEL_MAP.get(last_char_of_prev)
+        # エ段の直後のイ → エに変換（例: セ+イ → セ+エ = 長音）
+        if current_mora == 'イ' and prev_vowel == 'エ':
+            result[index] = 'エ'
+        # オ段の直後のウ → オに変換（例: コ+ウ → コ+オ = 長音）
+        elif current_mora == 'ウ' and prev_vowel == 'オ':
+            result[index] = 'オ'
+    return result
+
+
 # ---------------------------------------------------------------------------
 # 比較用正規化
 # ---------------------------------------------------------------------------
@@ -445,6 +480,9 @@ def normalize_for_comparison(kana_string: str) -> str:
 
     句読点を除去し、ヲ→オ に変換し、長音「ー」を展開する。
     ヅ→ズ、ヂ→ジ の正規化も行う（同一音素）。
+    さらに、読み形と発音形の長音表記ゆれを吸収する:
+    - エ段+イ (読み形) ↔ エ段+エ (発音形): 同一と見なす
+    - オ段+ウ (読み形) ↔ オ段+オ (発音形): 同一と見なす
 
     Args:
         kana_string (str): カタカナ文字列
@@ -471,7 +509,21 @@ def normalize_for_comparison(kana_string: str) -> str:
                 result_chars.append('ア')
         else:
             result_chars.append(char)
-    return ''.join(result_chars)
+    # 長音の読み形→発音形の正規化（エ段+イ→エ段+エ、オ段+ウ→オ段+オ）
+    # ROHAN は「読み」（コウカ, ジンセイ）、vvproj は「発音」（コオカ, ジンセエ）のため
+    # この差異は同じ音として正規化し、不要な修正を防ぐ
+    normalized_chars: list[str] = list(result_chars)
+    for index in range(1, len(normalized_chars)):
+        prev_char = normalized_chars[index - 1]
+        current_char = normalized_chars[index]
+        prev_vowel = CHOONPU_VOWEL_MAP.get(prev_char)
+        # エ段の直後のイ → エに正規化（例: セイ→セエ, ケイ→ケエ）
+        if current_char == 'イ' and prev_vowel == 'エ':
+            normalized_chars[index] = 'エ'
+        # オ段の直後のウ → オに正規化（例: コウ→コオ, トウ→トオ）
+        elif current_char == 'ウ' and prev_vowel == 'オ':
+            normalized_chars[index] = 'オ'
+    return ''.join(normalized_chars)
 
 
 # ---------------------------------------------------------------------------
@@ -1488,8 +1540,10 @@ def process_single_entry(
     log_lines.append(f'  Target kana: {target_kana}')
     log_lines.append(f'  Reason: {reason}')
 
-    # ターゲットをモーラに分割
-    target_moras = parse_kana_to_moras(target_kana)
+    # ターゲットをモーラに分割し、読み形→発音形に変換
+    # ROHAN は「読み」（コウカ, ジンセイ）だが vvproj は「発音」（コオカ, ジンセエ）であるべき
+    target_moras_raw = parse_kana_to_moras(target_kana)
+    target_moras = convert_moras_yomi_to_pron(target_moras_raw)
     log_lines.append(f'  Target moras: {target_moras}')
 
     # DP アラインメント
@@ -1618,19 +1672,11 @@ def main() -> None:
 
             total_entries += 1
 
-            # ジャッジで「問題あり」とされたエントリのみを修正対象とする
-            # 「問題なし」のエントリを誤って変更しないためのセーフガード
-            is_in_problematic_list = False
-            if script_id and script_id in problematic_ids:
-                is_in_problematic_list = True
-            elif not script_id and f'__surface__{surface}' in problematic_ids:
-                is_in_problematic_list = True
-
-            # 問題ありリストが空（レポートが存在しない場合）は全件処理
-            # 問題ありリストがある場合はリストに含まれるエントリのみ処理
-            if len(problematic_ids) > 0 and is_in_problematic_list is not True:
-                skipped_entries += 1
-                continue
+            # セーフガード: ROHAN と一致しているエントリは修正対象外
+            # should_fix_entry() 内で ROHAN 一致チェックが行われるため、
+            # ここではフィルタリングせず全エントリを処理対象とする
+            # （以前は problematic_ids フィルタがあったが、ROHAN と不一致の
+            #  「問題なし」エントリも修正すべきことが判明したため撤廃）
 
             # ROHAN のカタカナ読みを取得
             rohan_kana = rohan_dict.get(script_id) if script_id else None

@@ -3343,18 +3343,12 @@
                 "pitch": 0
               },
               {
-                "consonant": "r",
-                "consonantLength": 0,
-                "vowel": "i",
-                "vowelLength": 0,
-                "text": "リ",
-                "pitch": 0
-              },
-              {
+                "text": "リェ",
                 "vowel": "e",
                 "vowelLength": 0,
-                "text": "エ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "ry",
+                "consonantLength": 0
               },
               {
                 "consonant": "w",
@@ -3966,11 +3960,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "ch",
+                "consonant": "ty",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "チュ",
+                "text": "テュ",
                 "pitch": 0
               },
               {
@@ -4041,18 +4035,12 @@
           {
             "moras": [
               {
-                "text": "グ",
-                "consonant": "g",
-                "consonantLength": 0.04833830147981644,
-                "vowel": "u",
-                "vowelLength": 0.08237513899803162,
-                "pitch": 5.651483535766602
-              },
-              {
-                "text": "ア",
+                "text": "グァ",
                 "vowel": "a",
                 "vowelLength": 0.12097645550966263,
-                "pitch": 5.907052993774414
+                "pitch": 5.651483535766602,
+                "consonant": "gw",
+                "consonantLength": 0.04833830147981644
               },
               {
                 "text": "ル",
@@ -4101,9 +4089,9 @@
                 "pitch": 0
               },
               {
-                "vowel": "i",
+                "vowel": "e",
                 "vowelLength": 0,
-                "text": "イ",
+                "text": "エ",
                 "pitch": 0
               },
               {

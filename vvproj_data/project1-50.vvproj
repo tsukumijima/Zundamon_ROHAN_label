@@ -3914,8 +3914,8 @@
                 "pitch": 5.878315448760986
               },
               {
-                "text": "ブ",
-                "consonant": "b",
+                "text": "ヴ",
+                "consonant": "v",
                 "consonantLength": 0.057944782078266144,
                 "vowel": "u",
                 "vowelLength": 0.06346190720796585,
@@ -5056,16 +5056,16 @@
                 "pitch": 5.663379669189453
               },
               {
-                "text": "ケ",
-                "consonant": "k",
+                "text": "キェ",
+                "consonant": "ky",
                 "consonantLength": 0.05824882537126541,
                 "vowel": "e",
                 "vowelLength": 0.07287504523992538,
                 "pitch": 5.777954578399658
               },
               {
-                "text": "ビ",
-                "consonant": "b",
+                "text": "ヴィ",
+                "consonant": "v",
                 "consonantLength": 0.056354276835918427,
                 "vowel": "i",
                 "vowelLength": 0.07090917229652405,
@@ -5831,16 +5831,12 @@
                 "pitch": 5.650554656982422
               },
               {
-                "text": "イ",
-                "vowel": "i",
-                "vowelLength": 0.1008138582110405,
-                "pitch": 5.869302749633789
-              },
-              {
-                "text": "エ",
+                "text": "イェ",
                 "vowel": "e",
                 "vowelLength": 0.10878341645002365,
-                "pitch": 5.917513370513916
+                "pitch": 5.869302749633789,
+                "consonant": "y",
+                "consonantLength": 0.05
               },
               {
                 "text": "ミ",
@@ -5859,7 +5855,7 @@
                 "pitch": 5.858499526977539
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "isInterrogative": false
           },
           {
@@ -7530,11 +7526,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "ch",
+                "consonant": "ty",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "チュ",
+                "text": "テュ",
                 "pitch": 0
               },
               {
@@ -9018,8 +9014,8 @@
                 "pitch": 5.932614803314209
               },
               {
-                "text": "ビ",
-                "consonant": "b",
+                "text": "ヴィ",
+                "consonant": "v",
                 "consonantLength": 0.07169634103775024,
                 "vowel": "i",
                 "vowelLength": 0.06669675558805466,

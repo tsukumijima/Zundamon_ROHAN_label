@@ -2062,11 +2062,11 @@
           {
             "moras": [
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {
@@ -2736,8 +2736,8 @@
                 "pitch": 5.730006694793701
               },
               {
-                "text": "フ",
-                "consonant": "f",
+                "text": "ブ",
+                "consonant": "b",
                 "consonantLength": 0.08628919720649719,
                 "vowel": "u",
                 "vowelLength": 0.07999932765960693,
@@ -5296,18 +5296,12 @@
           {
             "moras": [
               {
-                "text": "グ",
-                "consonant": "g",
-                "consonantLength": 0.054567851126194,
-                "vowel": "u",
-                "vowelLength": 0.08904994279146194,
-                "pitch": 5.6559038162231445
-              },
-              {
-                "text": "ウ",
+                "text": "グゥ",
                 "vowel": "u",
                 "vowelLength": 0.09376352280378342,
-                "pitch": 5.840230941772461
+                "pitch": 5.6559038162231445,
+                "consonant": "gw",
+                "consonantLength": 0.054567851126194
               },
               {
                 "text": "ラ",
@@ -5340,7 +5334,7 @@
                 "pitch": 5.55312442779541
               }
             ],
-            "accent": 4,
+            "accent": 3,
             "pauseMora": {
               "text": "、",
               "vowel": "pau",
@@ -6195,8 +6189,8 @@
                 "pitch": 5.880923271179199
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "エ",
+                "vowel": "e",
                 "vowelLength": 0.058093875646591187,
                 "pitch": 5.871091842651367
               },
@@ -6283,11 +6277,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "ブ",
+                "text": "ヴ",
                 "pitch": 0
               },
               {
@@ -8767,8 +8761,8 @@
                 "pitch": 5.868120193481445
               },
               {
-                "text": "ブ",
-                "consonant": "b",
+                "text": "ヴ",
+                "consonant": "v",
                 "consonantLength": 0.05422654002904892,
                 "vowel": "u",
                 "vowelLength": 0.06446702033281326,

@@ -1141,8 +1141,8 @@
                 "pitch": 5.87497615814209
               },
               {
-                "text": "バ",
-                "consonant": "b",
+                "text": "ヴァ",
+                "consonant": "v",
                 "consonantLength": 0.05105987936258316,
                 "vowel": "a",
                 "vowelLength": 0.09523787349462509,
@@ -3140,8 +3140,8 @@
                 "pitch": 6.055665969848633
               },
               {
-                "text": "ブ",
-                "consonant": "b",
+                "text": "ヴ",
+                "consonant": "v",
                 "consonantLength": 0.06154754012823105,
                 "vowel": "u",
                 "vowelLength": 0.05709228664636612,
@@ -3584,18 +3584,12 @@
                 "pitch": 5.832098484039307
               },
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.0842268094420433,
-                "vowel": "u",
-                "vowelLength": 0.05753745883703232,
-                "pitch": 5.8359270095825195
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.0923202857375145,
-                "pitch": 5.822882652282715
+                "pitch": 5.822882652282715,
+                "consonant": "ts",
+                "consonantLength": 0.0842268094420433
               },
               {
                 "text": "ワ",
@@ -3606,7 +3600,7 @@
                 "pitch": 5.644486427307129
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "pauseMora": {
               "text": "、",
               "vowel": "pau",
@@ -8292,18 +8286,12 @@
                 "pitch": 0
               },
               {
-                "consonant": "k",
-                "consonantLength": 0,
-                "vowel": "u",
-                "vowelLength": 0,
-                "text": "ク",
-                "pitch": 0
-              },
-              {
+                "text": "クォ",
                 "vowel": "o",
                 "vowelLength": 0,
-                "text": "オ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "kw",
+                "consonantLength": 0
               },
               {
                 "vowel": "o",
@@ -8328,7 +8316,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "pauseMora": {
               "vowel": "pau",
               "vowelLength": 0,
@@ -11539,18 +11527,12 @@
                 "pitch": 0
               },
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.08459842950105667,
-                "vowel": "u",
-                "vowelLength": 0.06090002506971359,
-                "pitch": 5.930393218994141
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.10655628144741058,
-                "pitch": 5.921648979187012
+                "pitch": 5.930393218994141,
+                "consonant": "ts",
+                "consonantLength": 0.08459842950105667
               },
               {
                 "text": "ティ",
@@ -11581,7 +11563,7 @@
                 "pitch": 5.594831466674805
               }
             ],
-            "accent": 6,
+            "accent": 5,
             "isInterrogative": false
           },
           {
@@ -12350,16 +12332,12 @@
                 "pitch": 5.861591339111328
               },
               {
-                "text": "ッ",
-                "vowel": "cl",
-                "vowelLength": 0.07099758833646774,
-                "pitch": 0
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.0648188665509224,
-                "pitch": 5.749560832977295
+                "pitch": 5.749560832977295,
+                "consonant": "ts",
+                "consonantLength": 0.05
               },
               {
                 "text": "デ",

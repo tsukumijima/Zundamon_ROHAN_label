@@ -327,16 +327,10 @@
                 "pitch": 5.546455383300781
               },
               {
-                "text": "オ",
-                "vowel": "o",
-                "vowelLength": 0.08710692077875137,
-                "pitch": 5.752163887023926
-              },
-              {
-                "text": "シュ",
+                "text": "シ",
                 "consonant": "sh",
                 "consonantLength": 0.06910362094640732,
-                "vowel": "u",
+                "vowel": "i",
                 "vowelLength": 0.06765381246805191,
                 "pitch": 5.818534851074219
               },
@@ -349,7 +343,7 @@
                 "pitch": 5.784817218780518
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "isInterrogative": false
           },
           {
@@ -1598,18 +1592,12 @@
           {
             "moras": [
               {
-                "consonant": "k",
-                "consonantLength": 0,
-                "vowel": "u",
-                "vowelLength": 0,
-                "text": "ク",
-                "pitch": 0
-              },
-              {
+                "text": "クァ",
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "ア",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "kw",
+                "consonantLength": 0
               },
               {
                 "consonant": "d",
@@ -1666,7 +1654,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 9,
+            "accent": 8,
             "isInterrogative": false
           },
           {
@@ -3643,11 +3631,11 @@
           {
             "moras": [
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "e",
                 "vowelLength": 0,
-                "text": "ベ",
+                "text": "ヴェ",
                 "pitch": 0
               },
               {
@@ -4297,11 +4285,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "バ",
+                "text": "ヴァ",
                 "pitch": 0
               },
               {
@@ -4387,9 +4375,9 @@
           {
             "moras": [
               {
-                "vowel": "u",
+                "vowel": "o",
                 "vowelLength": 0,
-                "text": "ウ",
+                "text": "オ",
                 "pitch": 0
               },
               {
@@ -8874,18 +8862,12 @@
                 "pitch": 5.874709606170654
               },
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.09332344681024551,
-                "vowel": "u",
-                "vowelLength": 0.06686147302389145,
-                "pitch": 5.917963981628418
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.09252852946519852,
-                "pitch": 5.947010517120361
+                "pitch": 5.947010517120361,
+                "consonant": "ts",
+                "consonantLength": 0.09332344681024551
               },
               {
                 "text": "ア",
@@ -8910,7 +8892,7 @@
                 "pitch": 5.558354377746582
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "isInterrogative": false
           },
           {
@@ -11106,11 +11088,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "i",
                 "vowelLength": 0,
-                "text": "ビ",
+                "text": "ヴィ",
                 "pitch": 0
               },
               {

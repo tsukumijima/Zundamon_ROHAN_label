@@ -740,18 +740,12 @@
                 "pitch": 5.7652740478515625
               },
               {
-                "text": "グ",
-                "consonant": "g",
-                "consonantLength": 0.06808101385831833,
-                "vowel": "u",
-                "vowelLength": 0.0881895199418068,
-                "pitch": 5.819575786590576
-              },
-              {
-                "text": "ウ",
+                "text": "グゥ",
                 "vowel": "u",
                 "vowelLength": 0.09490212053060532,
-                "pitch": 5.818826675415039
+                "pitch": 5.819575786590576,
+                "consonant": "gw",
+                "consonantLength": 0.06808101385831833
               },
               {
                 "text": "チ",
@@ -776,7 +770,7 @@
                 "pitch": 5.847088813781738
               }
             ],
-            "accent": 7,
+            "accent": 6,
             "isInterrogative": false
           },
           {
@@ -5257,11 +5251,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "バ",
+                "text": "ヴァ",
                 "pitch": 0
               },
               {

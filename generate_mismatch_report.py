@@ -56,9 +56,11 @@ RARE_PHONEMES = ("クァ", "クィ", "クゥ", "クェ", "クォ", "グァ", "�
 
 
 def normalize_for_comparison(kana: str) -> str:
-    """比較用に正規化。句読点・無声化記号除去、ヲ→オ、長音展開。"""
+    """比較用に正規化。句読点・無声化記号除去、ヲ→オ、ヅ→ズ、ヂ→ジ、長音展開、読み/発音形の統一。"""
     kana = re.sub(r"[、。？！\s\u0027\u2018\u2019\u02bc]", "", kana)
     kana = kana.replace("ヲ", "オ")
+    # ヅ→ズ, ヂ→ジ（同一音素）
+    kana = kana.replace("ヅ", "ズ").replace("ヂ", "ジ")
     result: list[str] = []
     for c in kana:
         if c == "ー":
@@ -76,6 +78,19 @@ def normalize_for_comparison(kana: str) -> str:
                 result.append("ア")
         else:
             result.append(c)
+    # 長音の読み形→発音形の正規化（エ段+イ→エ段+エ、オ段+ウ→オ段+オ）
+    # ROHAN は「読み」（コウカ, ジンセイ）、vvproj/pyopenjtalk は「発音」（コオカ, ジンセエ）
+    # のため、この差異を同一音として正規化する
+    for index in range(1, len(result)):
+        prev_char = result[index - 1]
+        current_char = result[index]
+        prev_vowel = VOWEL_MAP.get(prev_char)
+        # エ段の直後のイ → エに正規化（例: セイ→セエ, ケイ→ケエ）
+        if current_char == "イ" and prev_vowel == "エ":
+            result[index] = "エ"
+        # オ段の直後のウ → オに正規化（例: コウ→コオ, トウ→トオ）
+        elif current_char == "ウ" and prev_vowel == "オ":
+            result[index] = "オ"
     return "".join(result)
 
 

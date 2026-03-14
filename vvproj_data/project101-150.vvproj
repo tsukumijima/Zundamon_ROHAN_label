@@ -390,18 +390,12 @@
                 "pitch": 5.623455047607422
               },
               {
-                "text": "ツ",
-                "consonant": "ts",
-                "consonantLength": 0.09253086894750595,
-                "vowel": "u",
-                "vowelLength": 0.06424204260110855,
-                "pitch": 5.858067512512207
-              },
-              {
-                "text": "ア",
+                "text": "ツァ",
                 "vowel": "a",
                 "vowelLength": 0.10155882686376572,
-                "pitch": 5.798473358154297
+                "pitch": 5.858067512512207,
+                "consonant": "ts",
+                "consonantLength": 0.09253086894750595
               },
               {
                 "text": "ワ",
@@ -6841,9 +6835,9 @@
               {
                 "consonant": "j",
                 "consonantLength": 0,
-                "vowel": "u",
+                "vowel": "i",
                 "vowelLength": 0,
-                "text": "ジュ",
+                "text": "ジ",
                 "pitch": 0
               },
               {
@@ -6946,11 +6940,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "u",
                 "vowelLength": 0,
-                "text": "ブ",
+                "text": "ヴ",
                 "pitch": 0
               },
               {
@@ -7227,18 +7221,12 @@
                 "pitch": 5.862003326416016
               },
               {
-                "text": "グ",
-                "consonant": "g",
-                "consonantLength": 0.05986016243696213,
-                "vowel": "u",
-                "vowelLength": 0.08737889677286148,
-                "pitch": 5.914524078369141
-              },
-              {
-                "text": "ウ",
+                "text": "グゥ",
                 "vowel": "u",
                 "vowelLength": 0.0844639465212822,
-                "pitch": 5.95424747467041
+                "pitch": 5.95424747467041,
+                "consonant": "gw",
+                "consonantLength": 0.05986016243696213
               },
               {
                 "text": "ア",
@@ -7263,7 +7251,7 @@
                 "pitch": 5.556572437286377
               }
             ],
-            "accent": 5,
+            "accent": 4,
             "isInterrogative": false
           },
           {
@@ -8652,14 +8640,6 @@
                 "pitch": 0
               },
               {
-                "consonant": "r",
-                "consonantLength": 0,
-                "vowel": "e",
-                "vowelLength": 0,
-                "text": "レ",
-                "pitch": 0
-              },
-              {
                 "vowel": "i",
                 "vowelLength": 0,
                 "text": "イ",
@@ -8682,7 +8662,7 @@
                 "pitch": 0
               }
             ],
-            "accent": 3,
+            "accent": 2,
             "isInterrogative": false
           },
           {
@@ -10642,18 +10622,12 @@
                 "pitch": 0
               },
               {
-                "consonant": "g",
-                "consonantLength": 0,
-                "vowel": "u",
-                "vowelLength": 0,
-                "text": "グ",
-                "pitch": 0
-              },
-              {
+                "text": "グォ",
                 "vowel": "o",
                 "vowelLength": 0,
-                "text": "オ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "gw",
+                "consonantLength": 0
               },
               {
                 "vowel": "N",
@@ -11162,11 +11136,11 @@
                 "pitch": 0
               },
               {
-                "consonant": "b",
+                "consonant": "v",
                 "consonantLength": 0,
                 "vowel": "a",
                 "vowelLength": 0,
-                "text": "バ",
+                "text": "ヴァ",
                 "pitch": 0
               },
               {
