@@ -4898,20 +4898,12 @@
           {
             "moras": [
               {
-                "text": "フ",
-                "consonant": "f",
+                "text": "フュ",
+                "consonant": "fy",
                 "consonantLength": 0.07340676337480545,
                 "vowel": "u",
-                "vowelLength": 0.07625547796487808,
-                "pitch": 5.533888339996338
-              },
-              {
-                "text": "ュ",
-                "consonant": "y",
-                "consonantLength": 0.0676160529255867,
-                "vowel": "u",
                 "vowelLength": 0.11732839792966843,
-                "pitch": 5.469686508178711
+                "pitch": 5.533888339996338
               }
             ],
             "accent": 1,
