@@ -9974,9 +9974,9 @@
           {
             "moras": [
               {
-                "vowel": "o",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "オ",
+                "text": "ウ",
                 "pitch": 0
               },
               {
@@ -9996,12 +9996,12 @@
                 "pitch": 0
               },
               {
-                "consonant": "k",
-                "consonantLength": 0,
                 "vowel": "o",
                 "vowelLength": 0,
                 "text": "コ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "k",
+                "consonantLength": 0
               },
               {
                 "consonant": "r",

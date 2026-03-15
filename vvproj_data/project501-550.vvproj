@@ -3070,18 +3070,18 @@
           {
             "moras": [
               {
-                "vowel": "o",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "オ",
+                "text": "ウ",
                 "pitch": 0
               },
               {
-                "consonant": "d",
-                "consonantLength": 0,
                 "vowel": "e",
                 "vowelLength": 0,
                 "text": "デ",
-                "pitch": 0
+                "pitch": 0,
+                "consonant": "d",
+                "consonantLength": 0
               },
               {
                 "consonant": "w",
