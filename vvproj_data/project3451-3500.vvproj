@@ -1702,10 +1702,12 @@
                 "pitch": 5.519467830657959
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.06615107506513596,
-                "pitch": 5.515963554382324
+                "pitch": 5.515963554382324,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",
@@ -1796,10 +1798,12 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
+                "text": "ユ",
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "vowel": "u",

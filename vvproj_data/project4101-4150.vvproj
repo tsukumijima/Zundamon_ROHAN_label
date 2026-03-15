@@ -6103,10 +6103,12 @@
                 "pitch": 5.771625995635986
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.07702026516199112,
-                "pitch": 5.70943546295166
+                "pitch": 5.70943546295166,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",
@@ -11800,10 +11802,12 @@
                 "pitch": 5.5768022537231445
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.06900990009307861,
-                "pitch": 5.512729644775391
+                "pitch": 5.512729644775391,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",

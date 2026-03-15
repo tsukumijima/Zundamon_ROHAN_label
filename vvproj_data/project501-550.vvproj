@@ -5647,10 +5647,12 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
+                "text": "ユ",
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "vowel": "u",
@@ -11701,10 +11703,12 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
+                "text": "ユ",
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "vowel": "u",

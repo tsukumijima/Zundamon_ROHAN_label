@@ -4972,10 +4972,12 @@
                 "pitch": 5.72515344619751
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.08141276985406876,
-                "pitch": 5.676481246948242
+                "pitch": 5.676481246948242,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",
@@ -6488,10 +6490,12 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
+                "text": "ユ",
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "vowel": "u",
@@ -10774,10 +10778,12 @@
           {
             "moras": [
               {
-                "vowel": "i",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "イ",
-                "pitch": 0
+                "text": "ユ",
+                "pitch": 0,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "vowel": "u",

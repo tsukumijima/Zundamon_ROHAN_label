@@ -15978,10 +15978,12 @@
                 "pitch": 5.892973899841309
               },
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.0678454041481018,
-                "pitch": 5.93525505065918
+                "pitch": 5.93525505065918,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",

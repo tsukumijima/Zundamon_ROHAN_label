@@ -2929,10 +2929,12 @@
           {
             "moras": [
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.09086241573095322,
-                "pitch": 5.474245071411133
+                "pitch": 5.474245071411133,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",

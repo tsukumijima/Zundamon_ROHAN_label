@@ -4094,10 +4094,12 @@
           {
             "moras": [
               {
-                "text": "イ",
-                "vowel": "i",
+                "text": "ユ",
+                "vowel": "u",
                 "vowelLength": 0.07210863381624222,
-                "pitch": 5.424530029296875
+                "pitch": 5.424530029296875,
+                "consonant": "y",
+                "consonantLength": 0.02
               },
               {
                 "text": "ウ",
