@@ -1,1 +1,1 @@
-i ch o o g a y o w a i m a r i i ny o g a pau b i f u i i n a o n o m u
+i ch o u g a y o w a i m a r i i ny o g a pau b i f i i n a o n o m u

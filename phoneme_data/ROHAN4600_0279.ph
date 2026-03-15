@@ -1,1 +1,1 @@
-n i s e e o ch i g i r u t o pau py o t o r o v i ts e w a k o k o r o n i k i z a m u
+n i s e o ch i g i r u t o pau py o t o r o v i ts e w a k o k o r o n i k i z a m u

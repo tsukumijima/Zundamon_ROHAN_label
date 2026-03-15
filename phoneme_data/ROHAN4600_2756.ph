@@ -1,1 +1,1 @@
-k o z a a k u i g a pau j o o g o o g u g u cl t e s a g a s u
+k o z a a kw i g a pau j o u g o o g u g u cl t e s a g a s u

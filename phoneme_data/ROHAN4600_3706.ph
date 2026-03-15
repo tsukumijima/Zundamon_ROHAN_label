@@ -1,1 +1,1 @@
-s u k u i i z u n o m e N b a a d e pau i ch i d o m o y a m e t e i n a i n o w a d a r e d a r o o k a
+s u kw i i z u n o m e N b a a d e pau i ch i d o m o y a m e t e i n a i n o w a d a r e d a r o u k a

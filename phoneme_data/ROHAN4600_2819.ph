@@ -1,1 +1,1 @@
-p i t o o n o s a k u ry a k u w a s o r a g o t o d e w a n a i g a pau sh i d o u w o n o b o o g a i n i y o r i pau ry u u t o o d a b i n i o w a r i m a sh I t a
+p i t u n o s a k u ry a k u w a s o r a g o t o d e w a n a i g a pau sh i d u w o n o b o u g a i n i y o r i pau ry u u t o u d a b i n i o w a r i m a sh I t a

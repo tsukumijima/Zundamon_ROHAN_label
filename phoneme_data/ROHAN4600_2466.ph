@@ -1,1 +1,1 @@
-d u u k u u w a pau d o k U sh i N ry o k u n i t a k e t e m a s U
+d u u kw u w a pau d o k U sh i N ry o k u n i t a k e t e m a s U

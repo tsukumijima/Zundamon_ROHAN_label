@@ -1,1 +1,1 @@
-n o r i t o o n o b e r u y a k u w a pau ch u k u u d i e b e r e d o n o g a d a t o o d a r o
+n o r i t o o n o b e r u y a k u w a pau ch u kw u d i e b e r e d o n o g a d a t o u d a r o

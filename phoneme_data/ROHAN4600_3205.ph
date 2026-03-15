@@ -1,1 +1,1 @@
-g u a r u t i e e r o n o j i N j o o n a r a z a r u t e d e pau r e cl s e e o g o b u n i m a d e m o d o s e m a sh I t a n e
+gw a r u t i e e r o n o j i N j o u n a r a z a r u t e d e pau r e cl s e i o g o b u n i m a d e m o d o s e m a sh I t a n e

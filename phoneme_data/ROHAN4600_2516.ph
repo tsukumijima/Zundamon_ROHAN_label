@@ -1,1 +1,1 @@
-ky o o n o o r u d o u ny a w a pau o o k a r a N m a N d a z e
+ky o u n o o r u d u ny a w a pau o u k a r a N m a N d a z e

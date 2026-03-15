@@ -1,1 +1,1 @@
-r i u o ch e d e pau o r i g a m i g a ry u u k o o ch u u d e s U
+r i w o ch e d e pau o r i g a m i g a ry u u k o u ch u u d e s U

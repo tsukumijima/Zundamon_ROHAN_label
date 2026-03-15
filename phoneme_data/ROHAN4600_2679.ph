@@ -1,1 +1,1 @@
-ch o cl k e e g o s e N ch i n o hy o o g a pau f u y u r u t o d e f u r i m a sh i t a
+ch o cl k e i g o s e N ch i n o hy o u g a pau fy u r u t o d e f u r i m a sh i t a

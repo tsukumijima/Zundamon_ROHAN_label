@@ -1,1 +1,1 @@
-k a m i n a r i g a y o r u n o s e e j a k u o y a b u r i pau f e d e e r i k o g a t o b i o k i t a
+k a m i n a r i g a y o r u n o s e i j a k u o y a b u r i pau f e dy e r i k o g a t o b i o k i t a

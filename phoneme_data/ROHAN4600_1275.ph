@@ -1,1 +1,1 @@
-k a r e w a pau d e e j o o b u d a t o h a g e m a s U g a pau y a cl p a r i n a y a m i m a s U y o
+k a r e w a pau dy e j o u b u d a t o h a g e m a s U g a pau y a cl p a r i n a y a m i m a s U y o

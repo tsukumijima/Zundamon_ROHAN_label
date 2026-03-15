@@ -1,1 +1,1 @@
-r a N g u o i w a k u pau i ch i by o o n a i sh I s a N by o o d a t o k a
+r a N gw o i w a k u pau i ch i by o u n a i sh I s a N by o u d a t o k a

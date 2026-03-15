@@ -1,1 +1,1 @@
-m a t e y u i d i g a pau a m e n o m u r a k u m o o ny u u sh u sh I t a
+m a ty u i d i g a pau a m e n o m u r a k u m o o ny u u sh u sh I t a

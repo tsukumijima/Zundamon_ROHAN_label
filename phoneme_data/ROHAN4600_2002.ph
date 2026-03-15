@@ -1,1 +1,1 @@
-k o n o y o s a N d a t o pau ch a k u u n o y o o b o o w a m u r i d e s U n e
+k o n o y o s a N d a t o pau ch a kw u n o y o u b o u w a m u r i d e s U n e

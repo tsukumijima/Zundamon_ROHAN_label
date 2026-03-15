@@ -1,1 +1,1 @@
-k u u t o g u u n o k o s u u o pau by o o d o o n i sh i n a ky a
+kw u t o gw u n o k o s u u o pau by o u d o u n i sh i n a ky a

@@ -1,1 +1,1 @@
-ry o k U ch a n a r a pau b i j e b a a n o d e k a e m a s U
+ry o k U ch a n a r a pau v i j e v a a n o d e k a e m a s U

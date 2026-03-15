@@ -1,1 +1,1 @@
-f o r u t o u n a a g o n o s u m i k a o f U sh i N s u r u z o
+f o r u t u n a a g o n o s u m i k a o f U sh i N s u r u z o

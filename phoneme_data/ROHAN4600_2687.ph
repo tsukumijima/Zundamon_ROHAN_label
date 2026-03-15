@@ -1,1 +1,1 @@
-k u o cl p a m a k i w a h o o m a ts u k o o h o d e sh o o
+kw o cl p a m a k i w a h o u m a ts u k o u h o d e sh o u

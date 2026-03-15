@@ -1,1 +1,1 @@
-d o k u i w a pau r u f e e b u r u n o sh o o d a k u o e t a
+d o kw i w a pau r u f e e b u r u n o sh o u d a k u o e t a

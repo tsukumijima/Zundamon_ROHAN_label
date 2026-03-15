@@ -1,1 +1,1 @@
-z u b a r i pau p e ts o cl t a o n a g u cl t a n o w a pau sh a k u e r i a d a
+z u b a r i pau p e ts o cl t a o n a g u cl t a n o w a pau sh a kw e r i a d a

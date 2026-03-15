@@ -1,1 +1,1 @@
-ch e r u k u e cl t i w a pau hy a k U sh o o o k i w a m e r u
+ch e r u kw e cl t i w a pau hy a k U sh o u o k i w a m e r u
