@@ -5733,9 +5733,9 @@
           {
             "moras": [
               {
-                "vowel": "o",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "オ",
+                "text": "ウ",
                 "pitch": 0
               },
               {
@@ -9537,8 +9537,8 @@
                 "pitch": 5.567953586578369
               },
               {
-                "text": "エ",
-                "vowel": "e",
+                "text": "イ",
+                "vowel": "i",
                 "vowelLength": 0.07044845074415207,
                 "pitch": 5.620009422302246
               },

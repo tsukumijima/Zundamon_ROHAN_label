@@ -462,6 +462,11 @@ def convert_moras_yomi_to_pron(moras: list[str]) -> list[str]:
         # 直前のモーラの最後の文字から母音段を判定
         last_char_of_prev = prev_mora[-1]
         prev_vowel = CHOONPU_VOWEL_MAP.get(last_char_of_prev)
+        # 直前のモーラが「ヲ」（助詞の「を」）の場合は長音変換しない
+        # 「ヲ+ウ...」は「を+う語頭単語」（恨む、歌う、売る、受ける 等）であり、
+        # 長音ではなく新しい単語の先頭であるため変換すると誤りになる
+        if prev_mora == 'ヲ':
+            continue
         # エ段の直後のイ → エに変換（例: セ+イ → セ+エ = 長音）
         if current_mora == 'イ' and prev_vowel == 'エ':
             result[index] = 'エ'
@@ -493,7 +498,7 @@ def normalize_for_comparison(kana_string: str) -> str:
 
     # 句読点・記号除去（アポストロフィ類も含む。generate_mismatch_report.py と同一パターン）
     cleaned = re.sub(r'[、。？！\s\u0027\u2018\u2019\u02bc]', '', kana_string)
-    # ヲ→オ
+    # ヲ→オ（比較用正規化では対称性を保つため先に行う）
     cleaned = cleaned.replace('ヲ', 'オ')
     # ヅ→ズ, ヂ→ジ（同一音素）
     cleaned = cleaned.replace('ヅ', 'ズ').replace('ヂ', 'ジ')
@@ -512,6 +517,9 @@ def normalize_for_comparison(kana_string: str) -> str:
     # 長音の読み形→発音形の正規化（エ段+イ→エ段+エ、オ段+ウ→オ段+オ）
     # ROHAN は「読み」（コウカ, ジンセイ）、vvproj は「発音」（コオカ, ジンセエ）のため
     # この差異は同じ音として正規化し、不要な修正を防ぐ
+    # 注意: ヲ+ウ語頭パターン（を+恨む等）は normalize_for_comparison では対称性のため
+    # 正規化する（両側とも同じ結果になる）。ヲ+ウ の修正は convert_moras_yomi_to_pron と
+    # 別途の後処理で行う。
     normalized_chars: list[str] = list(result_chars)
     for index in range(1, len(normalized_chars)):
         prev_char = normalized_chars[index - 1]

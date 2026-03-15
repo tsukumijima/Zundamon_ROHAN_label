@@ -1,1 +1,1 @@
-k a w a i g a cl t e e t a i N k o g a n i g e pau sh o s U t a k o o v i ch i w a k a n a sh i m i m a sh I t a
+k a w a i g a cl t e i t a i N k o g a n i g e pau sh o s U t a k o o v i ch i w a k a n a sh i m i m a sh I t a

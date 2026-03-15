@@ -1,1 +1,1 @@
-ch i ch i n o sh o n a n u k a n o g i o o e pau s U k o sh I ky u u k e e sh I t e e r u
+ch i ch i n o sh o n a n u k a n o g i o o e pau s U k o sh I ky u u k e e sh I t e i r u

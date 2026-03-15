@@ -409,8 +409,8 @@
                 "pitch": 5.510626792907715
               },
               {
-                "text": "エ",
-                "vowel": "e",
+                "text": "イ",
+                "vowel": "i",
                 "vowelLength": 0.07025343924760818,
                 "pitch": 5.414018630981445
               },
@@ -3414,9 +3414,9 @@
           {
             "moras": [
               {
-                "vowel": "o",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "オ",
+                "text": "ウ",
                 "pitch": 0
               },
               {
@@ -4052,9 +4052,9 @@
                 "pitch": 0
               },
               {
-                "vowel": "u",
+                "vowel": "o",
                 "vowelLength": 0,
-                "text": "ウ",
+                "text": "オ",
                 "pitch": 0
               },
               {
@@ -4380,9 +4380,9 @@
                 "pitch": 0
               },
               {
-                "vowel": "u",
+                "vowel": "o",
                 "vowelLength": 0,
-                "text": "ウ",
+                "text": "オ",
                 "pitch": 0
               },
               {
@@ -8028,9 +8028,9 @@
           {
             "moras": [
               {
-                "vowel": "o",
+                "vowel": "u",
                 "vowelLength": 0,
-                "text": "オ",
+                "text": "ウ",
                 "pitch": 0
               },
               {

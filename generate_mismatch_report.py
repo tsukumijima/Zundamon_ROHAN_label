@@ -314,6 +314,15 @@ def judge_mismatch(m: dict) -> tuple[str, str]:
 
     # pyopenjtalk が ROHAN と一致（ヅ/ズ、ヂ/ジ の表記ゆれは許容）
     if expected_v == rohan_v:
+        # イウ→ユウ 変更は意図的な逸脱（現代日本語では「という」は「とゆう」と発音する）
+        # vvproj と ROHAN の差分が イ→ユ のみの場合は問題なしとする
+        diff_chars = [(a, r) for a, r in zip(actual_v, rohan_v) if a != r]
+        is_only_iu_to_yu = len(diff_chars) > 0 and all(
+            (a == 'ユ' and r == 'イ') or (a == 'ゆ' and r == 'い')
+            for a, r in diff_chars
+        ) and abs(len(actual_v) - len(rohan_v)) == 0
+        if is_only_iu_to_yu is True:
+            return ("問題なし", "vvproj の イウ→ユウ 変更は意図的。現代日本語の発音（とゆう）に準拠。")
         return ("問題あり", "vvproj が ROHAN と乖離。pyopenjtalk の方が正しい。vvproj の誤り。")
 
     # 両方 ROHAN と異なる場合：内容を読んで判断
@@ -350,6 +359,14 @@ def judge_mismatch(m: dict) -> tuple[str, str]:
     if dist_actual < dist_expected:
         return ("問題なし", f"vvproj の方が ROHAN に近い（距離: vvproj={dist_actual}, pyojt={dist_expected}）。補正方向は妥当。")
     if dist_expected < dist_actual:
+        # イウ→ユウ の意図的変更による距離増加は問題なし
+        diff_chars_ar = [(a, r) for a, r in zip(actual_v, rohan_v) if a != r]
+        is_iu_yu_only = len(diff_chars_ar) > 0 and all(
+            (a == 'ユ' and r == 'イ') or (a == 'ゆ' and r == 'い')
+            for a, r in diff_chars_ar
+        ) and abs(len(actual_v) - len(rohan_v)) == 0
+        if is_iu_yu_only is True:
+            return ("問題なし", f"vvproj の イウ→ユウ 変更は意図的。現代日本語の発音に準拠（距離: vvproj={dist_actual}, pyojt={dist_expected}）。")
         return ("問題あり", f"pyopenjtalk の方が ROHAN に近い（距離: vvproj={dist_actual}, pyojt={dist_expected}）。vvproj の誤り。")
 
     # 5. 同距離の場合：vvproj が拗音・外来語音を潰している → 問題あり（上のチェックで検出済み）
@@ -362,6 +379,15 @@ def judge_mismatch(m: dict) -> tuple[str, str]:
     # vvproj は pyopenjtalk より悪くないため、問題なしと判定
     if _normalize_voicing(actual_norm) == _normalize_voicing(expected_norm):
         return ("問題なし", f"vvproj と pyopenjtalk が同等（ヅ/ズ 正規化後一致、ROHAN からの距離: {dist_actual}）。")
+
+    # 同距離だが vvproj 側の差分がイウ→ユウのみなら問題なし
+    diff_chars_ar2 = [(a, r) for a, r in zip(actual_v, rohan_v) if a != r]
+    is_iu_yu_only2 = len(diff_chars_ar2) > 0 and all(
+        (a == 'ユ' and r == 'イ') or (a == 'ゆ' and r == 'い')
+        for a, r in diff_chars_ar2
+    ) and abs(len(actual_v) - len(rohan_v)) == 0
+    if is_iu_yu_only2 is True:
+        return ("問題なし", f"vvproj の イウ→ユウ 変更は意図的。現代日本語の発音に準拠（同距離: {dist_actual}）。")
 
     return ("要検討", f"vvproj と pyopenjtalk が ROHAN から同距離（距離: {dist_actual}）。要確認。")
 

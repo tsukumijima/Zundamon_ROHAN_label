@@ -1,1 +1,1 @@
-r a N gw u w a pau t a i k a o e r u t o k u r a i a N t o o o r a g i r i m a sh I t a
+r a N gw u w a pau t a i k a o e r u t o k u r a i a N t o o u r a g i r i m a sh I t a

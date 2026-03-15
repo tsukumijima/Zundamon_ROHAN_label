@@ -6891,9 +6891,9 @@
                 "pitch": 0
               },
               {
-                "vowel": "u",
+                "vowel": "o",
                 "vowelLength": 0,
-                "text": "ウ",
+                "text": "オ",
                 "pitch": 0
               },
               {
@@ -8457,9 +8457,9 @@
           {
             "moras": [
               {
-                "vowel": "e",
+                "vowel": "i",
                 "vowelLength": 0,
-                "text": "エ",
+                "text": "イ",
                 "pitch": 0
               },
               {
@@ -17204,8 +17204,8 @@
                 "pitch": 5.778665542602539
               },
               {
-                "text": "エ",
-                "vowel": "e",
+                "text": "イ",
+                "vowel": "i",
                 "vowelLength": 0.07098445296287537,
                 "pitch": 5.647960186004639
               },

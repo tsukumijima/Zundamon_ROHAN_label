@@ -1,1 +1,1 @@
-ky e r u k e g o o r u s a N pau sh a ch o o j i k i j i k i n o o f a a o o k e m a s e N k a
+ky e r u k e g o o r u s a N pau sh a ch o o j i k i j i k i n o o f a a o u k e m a s e N k a
